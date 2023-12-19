@@ -4,13 +4,14 @@ export function CapstoneIndex(props) {
       <h1>All capstones</h1>
       {props.capstones.map((capstone) => (
         <div key={capstone.id}>
-          <p>{props.capstone.capstone_name}</p>
-          <p>{props.capstone.student_name}</p>
-          <p>{props.capstone.capstone_description}</p>
+          <p>{capstone.capstone_name}</p>
+          <p>{capstone.student.first_name}</p>
+          <p>{capstone.student.last_name}</p>
+          <p>{capstone.capstone_description}</p>
           <p>
-            <a href={props.capstone.capstone_url}>Visit the Capstone</a>
+            <a href={capstone.capstone_url}>Visit the Capstone</a>
           </p>
-          <img src={props.capstone.capstone_screenshot_url} />
+          <img src={capstone.capstone_screenshot_url} />
           <button onClick={() => props.onShowCapstone(capstone)}>More Info</button>
         </div>
       ))}
