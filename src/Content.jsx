@@ -2,9 +2,17 @@
 import { CapstonesShow } from "./CapstonesShow";
 import { CapstoneIndex } from "./CapstoneIndex";
 import { useState } from "react";
+import { Sidebar } from "./Sidebar";
 import { Route, Routes } from "react-router-dom";
 
 export function Content() {
+  function openNav() {
+    document.getElementById("mySidenav").style.display = "block";
+  }
+  function closeNav() {
+    document.getElementById("mySidenav").style.display = "none";
+  }
+
   const [currentCapstone, setCurrentCapstone] = useState({});
 
   const handleShowCapstone = (capstone) => {
@@ -94,8 +102,11 @@ export function Content() {
     },
   ];
   return (
-    <div>
+    <div id="main">
       <h1>Capstones</h1>
+      <Sidebar />
+      <button onClick={openNav}>Open Sidebar</button>
+      <button onClick={closeNav}>Close Sidebar</button>
       <Routes>
         <Route path="/" element={<CapstoneIndex capstones={capstones} onShowCapstone={handleShowCapstone} />} />
         <Route path="/capstones/:capstoneId" element={<CapstonesShow capstone={currentCapstone} />} />
