@@ -1,15 +1,19 @@
 html {
   scroll-behavior: smooth;
+  font-family: sans-serif;
 }
 
 .sidenav {
   height: 100%; /* 100% Full-height */
+  width: 0;
   position: fixed; /* Stay in place */
+  z-index: 1;
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #111; /* Black*/
+  background-color: #f2c3e7;
+  overflow-x: hidden;
   padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  transition: .5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
 /* The navigation menu links */
@@ -17,14 +21,14 @@ html {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #000000;
   display: block;
   transition: 0.3s;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: white
 }
 
 /* Position and style the close button (top right corner) */
@@ -40,7 +44,6 @@ html {
 #main {
   transition: margin-left .5s;
   padding: 20px;
-  padding-left: 150px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -49,6 +52,24 @@ html {
   .sidenav a {font-size: 18px;}
 }
 
-/* #mySidenav {
+#mySidenav {
   display: block
-} */
+}
+
+#mySidenav.p {
+  color: white;
+}
+
+.card {
+  padding: 15px;
+  margin: 15px;
+  line-height: 5px;
+}
+
+.card2 {
+  line-height: 25px;
+}
+
+#footer-id {
+  transition: margin-left .5s;
+}

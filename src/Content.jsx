@@ -7,10 +7,9 @@ import { Route, Routes } from "react-router-dom";
 
 export function Content() {
   function openNav() {
-    document.getElementById("mySidenav").style.display = "block";
-  }
-  function closeNav() {
-    document.getElementById("mySidenav").style.display = "none";
+    document.getElementById("mySidenav").style.width = "300px";
+    document.getElementById("main").style.marginLeft = "300px";
+    document.getElementById("footer-id").style.marginLeft = "300px";
   }
 
   const [currentCapstone, setCurrentCapstone] = useState({});
@@ -19,7 +18,7 @@ export function Content() {
     setCurrentCapstone(capstone);
   };
 
-  const capstones = [
+  let capstones = [
     {
       id: 1,
       capstone_name: "Capstone 1",
@@ -101,16 +100,42 @@ export function Content() {
         "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png",
     },
   ];
+
+  const capstones_sorted = capstones.sort((a, b) => {
+    let fa = a.student.last_name.toLowerCase();
+    let fb = b.student.last_name.toLowerCase();
+    let fc = a.student.first_name.toLowerCase();
+    let fd = b.student.first_name.toLowerCase();
+
+    if (fa === fb) {
+      if (fc <= fd) {
+        return -1;
+      }
+      if (fc > fd) {
+        return 1;
+      }
+    }
+
+    if (fa < fb) {
+      return -1;
+    }
+    if (fa > fb) {
+      return 1;
+    }
+    return 0;
+  });
   return (
+    <div>
+    <Sidebar capstones={capstones_sorted} />
     <div id="main">
       <h1>Capstones</h1>
-      <Sidebar />
+
       <button onClick={openNav}>Open Sidebar</button>
-      <button onClick={closeNav}>Close Sidebar</button>
       <Routes>
         <Route path="/" element={<CapstoneIndex capstones={capstones} onShowCapstone={handleShowCapstone} />} />
         <Route path="/capstones/:capstoneId" element={<CapstonesShow capstone={currentCapstone} />} />
       </Routes>
+      </div>
     </div>
   );
 }
