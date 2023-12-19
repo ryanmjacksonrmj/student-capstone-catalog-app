@@ -3,7 +3,8 @@ export function CapstonesShow(props) {
     <div>
       <h1>Capstone Info</h1>
       <p>{props.capstone.capstone_name}</p>
-      <p>{props.capstone.student_name}</p>
+      <p>{props.capstone.student.first_name}</p>
+      <p>{props.capstone.student.last_name}</p>
       <p>{props.capstone.capstone_description}</p>
       <p>
         <a href={props.capstone.capstone_url}>Visit the Capstone</a>
