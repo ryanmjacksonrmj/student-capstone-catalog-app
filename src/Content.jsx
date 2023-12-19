@@ -126,15 +126,14 @@ export function Content() {
   });
   return (
     <div>
-    <Sidebar capstones={capstones_sorted} />
-    <div id="main">
-      <h1>Capstones</h1>
-
-      <button onClick={openNav}>Open Sidebar</button>
-      <Routes>
-        <Route path="/" element={<CapstoneIndex capstones={capstones} onShowCapstone={handleShowCapstone} />} />
-        <Route path="/capstones/:capstoneId" element={<CapstonesShow capstone={currentCapstone} />} />
-      </Routes>
+      <Sidebar capstones={capstones_sorted} />
+      <div id="main">
+        <h1>Capstones</h1>
+        <button onClick={openNav}>Open Sidebar</button>
+        <Routes>
+          <Route path="/" element={<CapstoneIndex capstones={capstones} onShowCapstone={handleShowCapstone} />} />
+          <Route path="/capstones/:capstoneId" element={<CapstonesShow capstone={currentCapstone} />} />
+        </Routes>
       </div>
     </div>
   );
