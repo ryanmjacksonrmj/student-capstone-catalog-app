@@ -1,13 +1,9 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 export function CapstoneIndex(props) {
-  const [searchItem, setSearchItem] = useState("");
   return (
     <div>
-      Search: <input type="text" value={searchItem} onChange={(event) => setSearchItem(event.target.value)} />
       {props.capstones
-        .filter((capstone) => capstone.capstone_name.toLowerCase().includes(searchItem.toLowerCase()))
         .map((capstone) => (
           <div key={capstone.id}>
             <div className="card">
