@@ -104,7 +104,7 @@ export function Content() {
   return (
     <div id="main">
       <h1>Capstones</h1>
-      <Sidebar />
+      <Sidebar capstones={capstones} />
       <button onClick={openNav}>Open Sidebar</button>
       <button onClick={closeNav}>Close Sidebar</button>
       <Routes>
