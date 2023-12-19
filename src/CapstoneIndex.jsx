@@ -10,6 +10,7 @@ export function CapstoneIndex(props) {
             <a href={capstone.capstone_url}>Visit the Capstone</a>
           </p>
           <img src={capstone.screenshot_url} />
+          <button onClick={() => props.onShowCapstone(capstone)}>More Info</button>
         </div>
       ))}
     </div>
