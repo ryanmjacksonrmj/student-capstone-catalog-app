@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function CapstoneIndex(props) {
   return (
     <div>
@@ -12,7 +14,9 @@ export function CapstoneIndex(props) {
             <a href={capstone.capstone_url}>Visit the Capstone</a>
           </p>
           <img src={capstone.capstone_screenshot_url} />
-          <button onClick={() => props.onShowCapstone(capstone)}>More Info</button>
+          <Link to={`/capstones/${capstone.id}`} onClick={() => props.onShowCapstone(capstone)}>
+            More Info
+          </Link>
         </div>
       ))}
     </div>
