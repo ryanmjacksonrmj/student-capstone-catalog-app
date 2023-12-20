@@ -15,6 +15,9 @@ export function Sidebar(props) {
         &times;{" "}
       </Link>
       Search: <input type="text" value={searchItem} onChange={(event) => setSearchItem(event.target.value)} />
+      <li>
+        <Link to={`/`}>All Capstones</Link>
+      </li>
       {props.capstones
         .filter((capstone) => capstone.capstone_name.toLowerCase().includes(searchItem.toLowerCase()))
         .map((capstone) => (
