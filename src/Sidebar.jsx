@@ -15,9 +15,8 @@ export function Sidebar(props) {
         &times;{" "}
       </Link>
       Search: <input type="text" value={searchItem} onChange={(event) => setSearchItem(event.target.value)} />
-      <li>
-        <Link to={`/`}>All Capstones</Link>
-      </li>
+      <br />
+      <Link to={`/`}>All Capstones</Link>
       {props.capstones
         .filter(
           (capstone) =>
@@ -29,9 +28,7 @@ export function Sidebar(props) {
           <div key={capstone.id}>
             <div className="card2">
               <ul>
-                <li>
-                  {capstone.student.last_name}, {capstone.student.first_name}{" "}
-                </li>
+                {capstone.student.last_name}, {capstone.student.first_name}{" "}
                 <li>
                   <Link to={`/capstones/${capstone.id}`} onClick={() => props.onShowCapstone(capstone)}>
                     {capstone.capstone_name}
