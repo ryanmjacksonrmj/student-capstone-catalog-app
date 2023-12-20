@@ -19,7 +19,12 @@ export function Sidebar(props) {
         <Link to={`/`}>All Capstones</Link>
       </li>
       {props.capstones
-        .filter((capstone) => capstone.capstone_name.toLowerCase().includes(searchItem.toLowerCase()))
+        .filter(
+          (capstone) =>
+            capstone.capstone_name.toLowerCase().includes(searchItem.toLowerCase()) ||
+            capstone.student.first_name.toLowerCase().includes(searchItem.toLowerCase()) ||
+            capstone.student.last_name.toLowerCase().includes(searchItem.toLowerCase())
+        )
         .map((capstone) => (
           <div key={capstone.id}>
             <div className="card2">
