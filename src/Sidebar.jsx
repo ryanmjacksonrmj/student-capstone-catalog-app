@@ -20,7 +20,7 @@ export function Sidebar(props) {
         .map((capstone) => (
           <div key={capstone.id}>
             <div className="card2">
-              <ul>
+              <ul className="sidebar-list">
                 <li>
                   {capstone.student.last_name}, {capstone.student.first_name}{" "}
                 </li>
