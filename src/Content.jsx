@@ -128,8 +128,7 @@ export function Content() {
     <div>
       <Sidebar onShowCapstone={handleShowCapstone} capstones={capstones_sorted} />
       <div id="main">
-        <h1>Capstones</h1>
-        <button onClick={openNav}>Open Sidebar</button>
+        <button id ="nav-button" onClick={openNav}><h1>Capstones</h1></button> 
         <Routes>
           <Route path="/" element={<CapstoneIndex capstones={capstones} onShowCapstone={handleShowCapstone} />} />
           <Route path="/capstones/:capstoneId" element={<CapstonesShow capstone={currentCapstone} />} />
