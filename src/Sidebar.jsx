@@ -14,7 +14,9 @@ export function Sidebar(props) {
       <Link className="closebtn" onClick={closeNav}>
         &times;{" "}
       </Link>
-      Search: <input type="text" value={searchItem} onChange={(event) => setSearchItem(event.target.value)} />
+      <div id="searchBar">
+        Search: <input type="text" value={searchItem} onChange={(event) => setSearchItem(event.target.value)} />
+      </div>
       <br />
       <Link to={`/`}>All Capstones</Link>
       {props.capstones
