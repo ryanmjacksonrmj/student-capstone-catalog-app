@@ -1,32 +1,36 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export function Sidebar(props) {
-  const [searchTerm, setSearchTerm] = useState("");
-
+  const [searchItem, setSearchItem] = useState("");
+  console.log(props);
   function closeNav() {
-    document.getElementById("mySidenav").style.display = "none";
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    document.getElementById("footer-id").style.marginLeft = "0";
   }
   return (
     <div id="mySidenav" className="sidenav">
-      <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>
-        &times;
-      </a>
-      Search Capstones:{" "}
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={(event) => setSearchTerm(event.target.value)}
-        list="capstone-names"
-      />
-      <datalist id="capstone-names">
-        {props.capstones.map((capstone) => (
-          <option key={capstone.id}>{capstone.capstone_name}</option>
+      <Link className="closebtn" onClick={closeNav}>
+        &times;{" "}
+      </Link>
+      Search: <input type="text" value={searchItem} onChange={(event) => setSearchItem(event.target.value)} />
+      {props.capstones
+        .filter((capstone) => capstone.capstone_name.toLowerCase().includes(searchItem.toLowerCase()))
+        .map((capstone) => (
+          <div key={capstone.id}>
+            <div className="card2">
+              <ul>
+                <li>
+                  {capstone.student.last_name}, {capstone.student.first_name}{" "}
+                </li>
+                <li>
+                  <Link to="/">{capstone.capstone_name}</Link>{" "}
+                </li>
+              </ul>
+            </div>
+          </div>
         ))}
-      </datalist>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
     </div>
   );
 }
