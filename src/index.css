@@ -44,6 +44,8 @@ html {
 #main {
   transition: margin-left .5s;
   padding: 20px;
+  min-height: 90vh;
+  height: 100%;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -76,4 +78,13 @@ html {
 
 #searchBar {
   padding: 1em;
+
+}
+
+#nav-button {
+  border: 0px;
+}
+
+.sidebar-list {
+  list-style-type: none;
 }

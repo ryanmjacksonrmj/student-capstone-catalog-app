@@ -30,8 +30,10 @@ export function Sidebar(props) {
           .map((capstone) => (
             <div key={capstone.id}>
               <div className="card2">
-                <ul>
-                  {capstone.student.last_name}, {capstone.student.first_name}{" "}
+                <ul className="sidebar-list">
+                  <li>
+                    {capstone.student.last_name}, {capstone.student.first_name}{" "}
+                  </li>
                   <li>
                     <Link to={`/capstones/${capstone.id}`} onClick={() => props.onShowCapstone(capstone)}>
                       {capstone.capstone_name}
