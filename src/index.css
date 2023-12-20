@@ -73,3 +73,7 @@ html {
 #footer-id {
   transition: margin-left .5s;
 }
+
+#nav-button {
+  border: 0px;
+}
