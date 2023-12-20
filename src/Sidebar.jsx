@@ -14,25 +14,36 @@ export function Sidebar(props) {
       <Link className="closebtn" onClick={closeNav}>
         &times;{" "}
       </Link>
-      Search: <input type="text" value={searchItem} onChange={(event) => setSearchItem(event.target.value)} />
-      {props.capstones
-        .filter((capstone) => capstone.capstone_name.toLowerCase().includes(searchItem.toLowerCase()))
-        .map((capstone) => (
-          <div key={capstone.id}>
-            <div className="card2">
-              <ul className="sidebar-list">
-                <li>
-                  {capstone.student.last_name}, {capstone.student.first_name}{" "}
-                </li>
-                <li>
-                  <Link to={`/capstones/${capstone.id}`} onClick={() => props.onShowCapstone(capstone)}>
-                    {capstone.capstone_name}
-                  </Link>{" "}
-                </li>
-              </ul>
+      <div id="searchBar">
+        Search: <input type="text" value={searchItem} onChange={(event) => setSearchItem(event.target.value)} />
+      </div>
+      <br />
+      <div className="sidebar-content" style={{ maxHeight: "calc(100vh - 150px)", overflowY: "auto" }}>
+        <Link to={`/`}>All Capstones</Link>
+        {props.capstones
+          .filter(
+            (capstone) =>
+              capstone.capstone_name.toLowerCase().includes(searchItem.toLowerCase()) ||
+              capstone.student.first_name.toLowerCase().includes(searchItem.toLowerCase()) ||
+              capstone.student.last_name.toLowerCase().includes(searchItem.toLowerCase())
+          )
+          .map((capstone) => (
+            <div key={capstone.id}>
+              <div className="card2">
+                <ul className="sidebar-list">
+                  <li>
+                    {capstone.student.last_name}, {capstone.student.first_name}{" "}
+                  </li>
+                  <li>
+                    <Link to={`/capstones/${capstone.id}`} onClick={() => props.onShowCapstone(capstone)}>
+                      {capstone.capstone_name}
+                    </Link>{" "}
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+      </div>
     </div>
   );
 }

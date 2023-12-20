@@ -74,6 +74,10 @@ html {
 
 #footer-id {
   transition: margin-left .5s;
+}
+
+#searchBar {
+  padding: 1em;
 
 }
 
