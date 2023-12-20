@@ -25,7 +25,9 @@ export function Sidebar(props) {
                   {capstone.student.last_name}, {capstone.student.first_name}{" "}
                 </li>
                 <li>
-                  <Link to="/">{capstone.capstone_name}</Link>{" "}
+                  <Link to={`/capstones/${capstone.id}`} onClick={() => props.onShowCapstone(capstone)}>
+                    {capstone.capstone_name}
+                  </Link>{" "}
                 </li>
               </ul>
             </div>

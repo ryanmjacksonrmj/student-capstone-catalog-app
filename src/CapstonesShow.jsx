@@ -1,4 +1,5 @@
 export function CapstonesShow(props) {
+  console.log(props);
   return (
     <div>
       <h1>Capstone Info</h1>

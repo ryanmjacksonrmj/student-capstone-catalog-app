@@ -126,7 +126,7 @@ export function Content() {
   });
   return (
     <div>
-      <Sidebar capstones={capstones_sorted} />
+      <Sidebar onShowCapstone={handleShowCapstone} capstones={capstones_sorted} />
       <div id="main">
         <h1>Capstones</h1>
         <button onClick={openNav}>Open Sidebar</button>
